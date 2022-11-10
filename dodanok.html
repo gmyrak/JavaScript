@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Доданок</title>
+        <meta charset="utf-8">
+    </head>
+
+<body>
+Value:
+<input id="arg">
+<input type="submit" value="OK" onclick="calculate()"> 
+
+<div id="result"></div>
+
+<script>
+    const arg = document.getElementById("arg");
+    const result = document.getElementById("result");
+
+
+    function calculate() {
+        result.innerHTML = "";
+
+        let input = arg.value;
+        let numbers = input.split(" ").map(x => Number(x));
+
+        let sum = 0;
+
+        for (const num of numbers) {
+           let a = num % 8;
+           if (a == 1 || a == 2) sum += num;
+        }
+ 
+        result.append(sum);
+    }
+</script>
+
+</body>
+</html>
