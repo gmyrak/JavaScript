@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Разложение на простые</title>
+        <meta charset="utf-8">
+    </head>
+
+<body>
+<h1>Разложение числа на простые множители</h1>    
+Введите число:
+<input id="arg">
+<input type="submit" value="OK" onclick="calculate()"> 
+
+<div id="result"></div>
+
+<script>
+    const arg = document.getElementById("arg");
+    const result = document.getElementById("result");
+
+    function calculate() {
+        result.innerHTML = "";
+
+        const n = Number(arg.value);
+
+        let k = n;
+        let p = 2;
+        pnumbers = [];
+        
+        while (p*p <= k) {
+            if (k % p == 0) {
+                k /= p;
+                pnumbers.push(p);
+            } else {
+                p++;
+            }
+        }
+        
+        pnumbers.push(k);
+
+        result.append(`${n} = ${pnumbers.join(" * ")}`);
+
+    }
+</script>
+
+</body>
+</html>
